@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "tsserver", "pyright", "clangd" },
+        ensure_installed = { "lua_ls", "eslint", "tsserver", "pyright", "clangd" },
       })
     end,
   },
@@ -25,12 +25,15 @@ return {
       lspconfig.tsserver.setup({
         capabilities = capabilities,
       })
+      lspconfig.eslint.setup({
+        capabilities = capabilities,
+      })
       lspconfig.pyright.setup({
         capabilities = capabilities,
-        filetypes = { "python"}
+        filetypes = { "python" },
       })
       lspconfig.clangd.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
