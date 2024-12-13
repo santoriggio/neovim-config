@@ -16,14 +16,14 @@ vim.g.mapleader = " "
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -38,11 +38,19 @@ vim.keymap.set("n", "<leader>b", ":buffers<CR>:buffer<Space>", {})
 vim.keymap.set(modes, "<C-j>", ":m .+1<CR>", {})
 vim.keymap.set(modes, "<C-k>", ":m .-2<CR>", {})
 vim.keymap.set("n", "<leader><leader>", "<C-w>w", {})
+vim.keymap.set("n", "<leader>rp", ":Crp<CR>", {})
+
+vim.api.nvim_create_user_command("Crp", function()
+	local path = vim.fn.expand("%:p:.")
+	vim.fn.setreg("+", path)
+	vim.notify("Copied relative path: " .. path)
+end, {})
+
 -- tree sitter config
 local config = require("nvim-treesitter.configs")
 
 config.setup({
-  auto_install = true,
-  highlight = { enable = true },
-  indent = { enable = true },
+	auto_install = true,
+	highlight = { enable = true },
+	indent = { enable = true },
 })
