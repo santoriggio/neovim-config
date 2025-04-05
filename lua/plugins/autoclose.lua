@@ -1,14 +1,19 @@
 return {
-	{
-		"windwp/nvim-ts-autotag",
-		config = function()
-			require("nvim-ts-autotag").setup()
-		end,
-	},
-	{
-		"m4xshen/autoclose.nvim",
-		config = function()
-			require("autoclose").setup()
-		end,
-	},
+	"m4xshen/autoclose.nvim",
+	config = function()
+		require("autoclose").setup({
+			options = {
+				disabled_filetypes = { "TelescopePrompt", "nofile" },
+				disable_when_touch = true,
+				pairspairs = {
+					{ "(", ")" },
+					{ "[", "]" },
+					{ "{", "}" },
+					{ '"', '"' },
+					{ "'", "'" },
+					{ "`", "`" },
+				},
+			},
+		})
+	end,
 }
