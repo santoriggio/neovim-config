@@ -2,9 +2,6 @@ return {
   {
     "hrsh7th/cmp-nvim-lsp",
   },
-  --[[ {
-    "hrsh7th/vim-vsnip"
-  }, ]]
   {
     "L3MON4D3/LuaSnip",
     dependencies = {
@@ -41,7 +38,7 @@ return {
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({
+          ["<Tab>"] = cmp.mapping.confirm({
             select = true,
             behavior = cmp.ConfirmBehavior.Replace,
           }),
@@ -54,6 +51,13 @@ return {
         }),
         completion = {
           completeopt = "menu,menuone,noinsert",
+          keyword_length = 2,
+          keyword_pattern = [[\k\+]],
+        },
+        performance = {
+          debounce = 100,
+          throttle = 100,
+          max_view_entries = 10,
         },
         experimental = {
           ghost_text = false,
