@@ -4,12 +4,12 @@ return { {
   config = function()
     local lint = require("lint")
 
+    lint.lint_ignore_pattern = { "node_modules/*", "build/*" };
     lint.linters_by_ft = {
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
-      json = { "eslint_d" }
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", {
@@ -43,12 +43,13 @@ return { {
         timeout_ms = 500,
         lsp_format = "fallback"
       },
-      formatters_by_ls = {
+      formatters_by_ft = {
         lua = { "stylua" },
         javascript = { { "prettier", "prettierd" } },
         typescript = { { "prettier", "prettierd" } },
         javascriptreact = { { "prettier", "prettierd" } },
-        typescriptreact = { { "prettier", "prettierd" } }
+        typescriptreact = { { "prettier", "prettierd" } },
+        json = { { "prettier", "prettierd" } }
       }
     })
 
