@@ -1,3 +1,4 @@
+-- TODO: add auto close on tags
 return {
 	"folke/tokyonight.nvim",
 	lazy = false,
