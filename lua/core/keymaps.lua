@@ -15,8 +15,8 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Show diagn
 
 -- LSP
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show documentation" })
-vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Show references" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Show references" })
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
 -- vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
@@ -34,9 +34,9 @@ vim.keymap.set("n", "<leader><leader>", "<C-w>w", { desc = "Switch windows" })
 
 -- Copy relative path
 vim.api.nvim_create_user_command("Crp", function()
-  local path = vim.fn.expand("%:p:.")
-  vim.fn.setreg("+", path)
-  vim.notify("Copied relative path: " .. path)
+	local path = vim.fn.expand("%:p:.")
+	vim.fn.setreg("+", path)
+	vim.notify("Copied relative path: " .. path)
 end, {})
 
 vim.keymap.set("n", "<leader>rp", ":Crp<CR>", { desc = "Copy relative path" })
