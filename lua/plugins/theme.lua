@@ -1,10 +1,9 @@
--- TODO: add auto close on tags
 return {
-	"folke/tokyonight.nvim",
-	lazy = false,
-	priority = 1000,
-	opts = {},
-  config = function ()
+  "folke/tokyonight.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {},
+  config = function()
     vim.cmd.colorscheme("tokyonight-night")
   end
 }

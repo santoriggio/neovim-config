@@ -1,5 +1,7 @@
 local modes = { "n", "i", "v" }
 
+vim.keymap.set("i", "jj", "<Esc>")
+
 -- File explorer
 vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", { desc = "Toggle file explorer" })
 
@@ -34,9 +36,9 @@ vim.keymap.set("n", "<leader><leader>", "<C-w>w", { desc = "Switch windows" })
 
 -- Copy relative path
 vim.api.nvim_create_user_command("Crp", function()
-	local path = vim.fn.expand("%:p:.")
-	vim.fn.setreg("+", path)
-	vim.notify("Copied relative path: " .. path)
+  local path = vim.fn.expand("%:p:.")
+  vim.fn.setreg("+", path)
+  vim.notify("Copied relative path: " .. path)
 end, {})
 
 vim.keymap.set("n", "<leader>rp", ":Crp<CR>", { desc = "Copy relative path" })
