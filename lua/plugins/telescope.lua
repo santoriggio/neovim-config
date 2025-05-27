@@ -78,7 +78,7 @@ return {
         pickers = {
           live_grep = {
             only_sort_text = true,
-            previewer = false,
+            previewer = true
           },
         },
       })
