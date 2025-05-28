@@ -8,6 +8,7 @@ return {
         defaults = {
           file_ignore_patterns = {
             "node_modules",
+            ".git",
             "ios/Pods",
             "ios/build",
             "android/.gradle",
@@ -23,7 +24,6 @@ return {
             "--line-number",
             "--column",
             "--smart-case",
-            "--max-depth=4",
             "--max-filesize=1M",
             "--hidden",
           },
