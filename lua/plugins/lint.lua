@@ -7,9 +7,9 @@ return {
 
       lint.lint_ignore_pattern = { "node_modules/*", "build/*" }
       lint.linters_by_ft = {
-        javascript = { "eslint_d" },
+        -- javascript = { "eslint_d" },
+        -- javascriptreact = { "eslint_d" },
         typescript = { "eslint_d" },
-        javascriptreact = { "eslint_d" },
         typescriptreact = { "eslint_d" },
       }
 
@@ -52,16 +52,16 @@ return {
       local conform = require("conform")
 
       conform.setup({
-        format_on_save = {
-          timeout_ms = 500,
-          lsp_format = "fallback",
-          stop_after_first = true,
-        },
+        -- format_on_save = {
+        --   timeout_ms = 500,
+        --   lsp_format = "fallback",
+        --   stop_after_first = true,
+        -- },
         formatters_by_ft = {
           lua = { "stylua" },
-          javascript = { "prettierd", "prettier" },
+          -- javascript = { "prettierd", "prettier" },
+          -- javascriptreact = { "prettierd", "prettier" },
           typescript = { "prettierd", "prettier" },
-          javascriptreact = { "prettierd", "prettier" },
           typescriptreact = { "prettierd", "prettier" },
           json = { "prettierd", "prettier" },
           css = { "prettierd", "prettier" },
