@@ -1,3 +1,5 @@
+-- Need to install fd, ripgrep
+-- brew install fd ripgrep
 return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.6",
