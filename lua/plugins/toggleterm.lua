@@ -2,9 +2,9 @@ return {
   "akinsho/toggleterm.nvim",
   config = function()
     require("toggleterm").setup({
-      size = 15,
+      size = 20,
       open_mapping = [[<C-\>]],
-      direction = "horizontal",
+      direction = "float",
       start_in_insert = true,
       insert_mappings = true, -- mappature in modalitˆ insert (Esc per uscire)
       terminal_mappings = true,
